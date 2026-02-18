@@ -3,11 +3,16 @@ import { Dashboard } from './page/dashboard/dashboard';
 import { Customer } from './page/dashboard/customer/customer';
 import { Item } from './page/dashboard/item/item';
 import { Order } from './page/dashboard/order/order';
+import { Login } from './page/login/login';
 
 export const routes: Routes = [
     {
         path:"",
-        component:Dashboard,
+        component:Login,
+    },
+    {
+        path:"login",
+        component:Login,
     },
     {
         path:"dashboard",

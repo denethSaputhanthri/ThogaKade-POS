@@ -1,1 +1,117 @@
-<p>login works!</p>
+x`<div class="login-container">
+  <!-- Left Side - Form -->
+  <div class="form-section">
+    <div class="form-content">
+      <div class="logo">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 5C25 5 15 12 15 25C15 38 25 45 25 45C25 45 35 38 35 25C35 12 25 5 25 5Z" fill="#4A90E2"/>
+          <ellipse cx="25" cy="20" rx="3" ry="4" fill="white"/>
+        </svg>
+      </div>
+      
+      <h1 class="title">Let's Catch Big Dreams!</h1>
+      <p class="subtitle">Pursue your dreams passionately and strive<br>to achieve your goals every day.</p>
+      
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Input Username" [(ngModel)]="username" name="username" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Input your email" [(ngModel)]="email" name="email" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-input">
+            <input [type]="showPassword ? 'text' : 'password'" id="password" placeholder="Input your password" [(ngModel)]="password" name="password" required />
+            <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6C7.79 6 6 7.79 6 10C6 12.21 7.79 14 10 14C12.21 14 14 12.21 14 10C14 7.79 12.21 6 10 6Z" fill="#666"/>
+                <path d="M10 2C5 2 1 10 1 10C1 10 5 18 10 18C15 18 19 10 19 10C19 10 15 2 10 2Z" stroke="#666" stroke-width="1.5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-submit" routerLink="/dashboard">Sign Up</button>
+      </form>
+      
+      <div class="divider">
+        <span>or continue with</span>
+      </div>
+      
+      <div class="social-buttons">
+        <button class="social-btn google" type="button" (click)="signInWithGoogle()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.51h3.232c1.891-1.742 2.982-4.305 2.982-7.351z" fill="#4285F4"/>
+            <path d="M10 20c2.7 0 4.964-.895 6.618-2.423l-3.232-2.509c-.895.6-2.04.955-3.386.955-2.605 0-4.81-1.76-5.595-4.123H1.064v2.59A9.996 9.996 0 0010 20z" fill="#34A853"/>
+            <path d="M4.405 11.9c-.2-.6-.314-1.24-.314-1.9 0-.66.114-1.3.314-1.9V5.51H1.064A9.996 9.996 0 000 10c0 1.614.386 3.14 1.064 4.49l3.34-2.59z" fill="#FBBC05"/>
+            <path d="M10 3.977c1.468 0 2.786.505 3.823 1.496l2.868-2.868C14.959.99 12.695 0 10 0 6.09 0 2.71 2.24 1.064 5.51l3.34 2.59C5.19 5.736 7.395 3.977 10 3.977z" fill="#EA4335"/>
+          </svg>
+          Google
+        </button>
+        
+        <button class="social-btn apple" type="button" (click)="signInWithApple()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.5 16.873c-.358.822-.532 1.19-.994 1.917-.644.998-1.553 2.24-2.677 2.252-1.001.013-1.261-.649-2.62-.642-1.357.007-1.65.657-2.651.644-1.124-.012-1.982-1.123-2.626-2.12C3.13 16.15 2.224 12.28 3.068 9.62c.593-1.867 2.079-3.048 3.88-3.074 1.081-.017 2.098.728 2.757.728.632 0 1.816-.9 3.066-.77.522.022 1.988.21 2.93 1.588-.076.047-1.748 1.02-1.73 3.046.019 2.408 2.107 3.207 2.127 3.215-.018.054-.333 1.139-.1.099zm-3.427-12.04c.516-.644.918-1.54.771-2.438-.745.035-1.636.515-2.168 1.152-.478.57-.93 1.493-.767 2.363.81.06 1.648-.412 2.164-1.077z" fill="currentColor"/>
+          </svg>
+          Apple
+        </button>
+      </div>
+      
+      <p class="footer-text">
+        Do have an account? <a href="#">Sign</a>
+      </p>
+      
+      <p class="terms">
+        By continuing with Google, Apple, or Email, you agree to<br>
+        Mancing <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Right Side - Hero -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-image">
+        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fish -->
+          <ellipse cx="150" cy="120" rx="60" ry="80" fill="#4A5F8C" opacity="0.9"/>
+          <ellipse cx="165" cy="120" rx="45" ry="65" fill="#5B7CB8"/>
+          <ellipse cx="170" cy="110" rx="30" ry="40" fill="#FDB640"/>
+          <circle cx="160" cy="95" r="15" fill="white"/>
+          <circle cx="165" cy="95" r="8" fill="#1a1a1a"/>
+          <!-- Fin -->
+          <path d="M120 100 L90 80 L95 110 Z" fill="#E85D3C"/>
+          <path d="M120 140 L90 160 L95 130 Z" fill="#E85D3C"/>
+          <!-- Person -->
+          <ellipse cx="230" cy="180" rx="25" ry="30" fill="#FDB640"/>
+          <circle cx="230" cy="165" r="18" fill="#D18C54"/>
+          <circle cx="225" cy="162" r="3" fill="#1a1a1a"/>
+          <path d="M230 180 L230 230" stroke="#5FA35F" stroke-width="8" stroke-linecap="round"/>
+          <!-- Fishing Rod -->
+          <path d="M235 185 L270 140 L275 135" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+          <path d="M275 135 L160 90" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+        </svg>
+      </div>
+      
+      <h2 class="hero-title">Catch Your Biggest Opportunities</h2>
+      <p class="hero-description">
+        Become part of our vibrant community of dedicated anglers. Dive into<br>
+        the world of fishing and embark on your exciting journey today.<br>
+        Adventure awaits you on the water!
+      </p>
+      
+      <div class="user-avatars">
+        <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+        <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+        <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+        <div class="avatar" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+        <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+      </div>
+    </div>
+  </div>
+</div>
