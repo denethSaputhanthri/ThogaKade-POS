@@ -1,0 +1,132 @@
+<div class="dashboard-container" [class.dark-mode]="isDarkMode">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- Logo -->
+    <div class="logo">
+      <svg width="120" height="40" viewBox="0 0 120 40" fill="none">
+        <text x="0" y="28" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#6366F1">ThogaKade</text>
+        <text x="0" y="38" font-family="Arial, sans-serif" font-size="10" fill="#6366F1">POS.</text>
+      </svg>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <a routerLink="/dashboard/customer"class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M4 17C4 14 6.5 12 10 12C13.5 12 16 14 16 17" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Customer</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a routerLink="/dashboard/item" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="3" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M3 8H17" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Item</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a routerLink="/dashboard/order" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M17 9C17 13.4183 13.4183 17 9 17C7.28 17 5.68 16.42 4.4 15.44L2 17V12H7L5.16 13.84C6.08 14.58 7.24 15 8.5 15C11.5376 15 14 12.5376 14 9.5C14 6.46243 11.5376 4 8.5 4C6.5 4 4.79 5.06 3.86 6.64" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span>order</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 2L12 8H18L13 12L15 18L10 14L5 18L7 12L2 8H8L10 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        <span>AI Features</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>AI Voices</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M3 8H17M8 3V8" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Blogs</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="4" y="3" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="10" cy="10" r="2" fill="currentColor"/>
+        </svg>
+        <span>Subscriptions</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M2 10L6 6M6 6L10 10M6 6V14M18 10L14 14M14 14L10 10M14 14V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Marketing</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="3" y="5" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M7 5V3M13 5V3M3 9H17" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Menus</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="header">
+      <h1>ThogaKade-POS</h1>
+      <button class="btn-theme" (click)="toggleTheme()">
+        <svg *ngIf="!isDarkMode" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 15.5L14 14M6 6L4.5 4.5M15.5 4.5L14 6M6 14L4.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg *ngIf="isDarkMode" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M17 11C16 14 13.5 16 10 16C6 16 3 13 3 9C3 5.5 5.5 3 8.5 2.5C7.5 3.5 7 5 7 6.5C7 9.8 9.7 12.5 13 12.5C14.5 12.5 16 12 17 11Z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </header>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+  </main>
+</div>
