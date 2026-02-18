@@ -1,1 +1,27 @@
-<p>customer works!</p>
+<div class="container">
+    <h2>Customer Management</h2>
+
+    <div class="form-card">
+        <input type="text" id="name" placeholder="Customer Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="phone" placeholder="Phone">
+        <input type="text" id="address" placeholder="Address">
+        <button onclick="addCustomer()">Add Customer</button>
+    </div>
+
+    <div class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="customerTable">
+            </tbody>
+        </table>
+    </div>
+</div>
