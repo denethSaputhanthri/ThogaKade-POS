@@ -6,6 +6,7 @@
         <input type="email" id="email" placeholder="Email">
         <input type="text" id="phone" placeholder="Phone">
         <input type="text" id="address" placeholder="Address">
+        <input type="date" name="" id="dob" placeholder="Birth Of Date">
         <button onclick="addCustomer()">Add Customer</button>
     </div>
 
@@ -14,13 +15,22 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <th>Titel</th>
+                    <th>Birth Of Date</th>
+                    <th>Salary</th>
                     <th>Address</th>
-                    <th>Actions</th>
+                    <th>City</th>
                 </tr>
             </thead>
             <tbody id="customerTable">
+                <tr *ngFor="let customer of customerList">
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.title}}</td>
+                    <td>{{customer.dobValue}}</td> 
+                    <td>{{customer.salary}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.city}}</td>
+                </tr>
             </tbody>
         </table>
     </div>
