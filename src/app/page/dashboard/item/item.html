@@ -18,11 +18,11 @@
           <div class="form-row two-col">
             <div class="form-group">
               <label for="itemCode">Item Code</label>
-              <input type="text" id="itemCode" placeholder="Enter item code" />
+              <input type="text" [(ngModel)]="itemObj.id" id="itemCode" placeholder="Enter item code" />
             </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <input type="text" id="description" placeholder="Enter item description" />
+              <input type="text"[(ngModel)]="itemObj.description" id="description" placeholder="Enter item description" />
             </div>
           </div>
         </div>
@@ -35,15 +35,15 @@
           <div class="form-row three-col">
             <div class="form-group">
               <label for="packageSize">Package Size</label>
-              <input type="text" id="packageSize" placeholder="Enter pack size" />
+              <input type="text"[(ngModel)]="itemObj.packSize" id="packageSize" placeholder="Enter pack size" />
             </div>
             <div class="form-group">
               <label for="unitPrice">Unit Price</label>
-              <input type="number" id="unitPrice" placeholder="Enter price" step="0.01" />
+              <input type="number"[(ngModel)]="itemObj.unitPrice" id="unitPrice" placeholder="Enter price" step="0.01" />
             </div>
             <div class="form-group">
               <label for="quantity">Quantity</label>
-              <input type="number" id="quantity" placeholder="Enter quantity" />
+              <input type="number"[(ngModel)]="itemObj.qty" id="quantity" placeholder="Enter quantity" />
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
       <!-- Form Actions -->
       <div class="form-actions">
         <button type="button" class="btn btn-secondary">Clear</button>
-        <button type="button" class="btn btn-primary" onclick="addItem()">Add Item</button>
+        <button type="button" class="btn btn-primary" (click)="addItem()" >Add Item</button>
       </div>
     </div>
   </div>
