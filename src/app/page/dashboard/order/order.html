@@ -1,1 +1,23 @@
-<p>order works!</p>
+ <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Customer ID</th>
+          </tr>
+        </thead>
+        <tbody id="itemTable">
+            <tr class="table-row" *ngFor="let order of orderList">
+              <td class="cell-index">{{order.id}}</td>
+              <td class="cell-code">{{order.orderDate}}</td>
+              <td class="cell-code">{{order.customerId}}</td>
+              <td class="cell-actions">
+                <button class="action-btn edit-btn" title="Edit">✎</button>
+                <button class="action-btn delete-btn" title="Delete">✕</button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
