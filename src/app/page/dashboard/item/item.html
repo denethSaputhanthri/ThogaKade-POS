@@ -14,22 +14,20 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Tittel</th>
-                    <th>Birth Of Date</th>
-                    <th>Salary</th>
-                    <th>Address</th>
-                    <th>City</th>
+                    <th>Itme Code</th>
+                    <th>Description</th>
+                    <th>Package Size</th>
+                    <th>Unit Price</th>
+                    <th>Qty</th>
                 </tr>
             </thead>
             <tbody id="customerTable">
-                <tr *ngFor="let customer of customerList">
-                    <td>{{customer.name}}</td>
-                    <td>{{customer.tittle}}</td>
-                    <td>{{customer.dobValue}}</td>
-                    <td>{{customer.salary}}</td>
-                    <td>{{customer.address}}</td>
-                    <td>{{customer.city}}</td>
+                <tr *ngFor="let item of itemList">
+                    <td>{{item.id}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.packSize}}</td>
+                    <td>{{item.unitPrice}}</td>
+                    <td>{{item.qty}}</td>
                 </tr>
             </tbody>
         </table>

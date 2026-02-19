@@ -29,7 +29,7 @@ export class Customer implements OnInit {
   constructor(
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
-  ) { }
+  ) {}
   ngOnInit(): void {
     this.getAll();
   }
@@ -40,9 +40,9 @@ export class Customer implements OnInit {
       console.log(data);
       if (data === true) {
         Swal.fire({
-          title: "Good job !"+this.customerObj.name+"saved!",
+          title: 'Good job !' + this.customerObj.name + 'saved!',
           text: 'You clicked the button !',
-          icon: "success",
+          icon: 'success',
         });
       }
       this.getAll();
