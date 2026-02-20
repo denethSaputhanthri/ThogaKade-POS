@@ -1,1 +1,104 @@
-<p>item works!</p>
+<div class="container">
+  <div class="form-card">
+    <!-- Header Section -->
+    <div class="form-header">
+      <div class="form-card-title">
+        <div class="title-bar"></div>
+        <h2>Item Management</h2>
+      </div>
+      <p class="form-subtitle">Add and manage your inventory items</p>
+    </div>
+
+    <!-- Form Layout -->
+    <div class="form-layout">
+      <!-- Basic Information Section -->
+      <div class="form-block">
+        <h3 class="block-title">Basic Information</h3>
+        <div class="form-section-group">
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="itemCode">Item Code</label>
+              <input type="text" [(ngModel)]="itemObj.id" id="itemCode" placeholder="Enter item code" />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text"[(ngModel)]="itemObj.description" id="description" placeholder="Enter item description" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing & Inventory Section -->
+      <div class="form-block">
+        <h3 class="block-title">Pricing & Inventory</h3>
+        <div class="form-section-group">
+          <div class="form-row three-col">
+            <div class="form-group">
+              <label for="packageSize">Package Size</label>
+              <input type="text"[(ngModel)]="itemObj.packSize" id="packageSize" placeholder="Enter pack size" />
+            </div>
+            <div class="form-group">
+              <label for="unitPrice">Unit Price</label>
+              <input type="number"[(ngModel)]="itemObj.unitPrice" id="unitPrice" placeholder="Enter price" step="0.01" />
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input type="number"[(ngModel)]="itemObj.qty" id="quantity" placeholder="Enter quantity" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary">Clear</button>
+        <button type="button" class="btn btn-primary" (click)="addItem()" >Add Item</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Items Table -->
+  <div class="table-card">
+    <div class="table-header">
+      <h3>Item List</h3>
+      <span class="item-count">{{ itemList.length }} items</span>
+    </div>
+    
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item Code</th>
+            <th>Description</th>
+            <th>Package Size</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="itemTable">
+          
+            <tr class="table-row" *ngFor="let item of itemList index as i">
+              <td class="cell-index">{{i+1}}</td>
+              <td class="cell-code">{{ item.id }}</td>
+              <td class="cell-description">{{ item.description }}</td>
+              <td>{{ item.packSize }}</td>
+              <td class="cell-price">${{ item.unitPrice }}</td>
+              <td class="cell-qty">{{ item.qty }}</td>
+              <td class="cell-actions">
+                <button class="action-btn edit-btn" title="Edit">✎</button>
+                <button class="action-btn delete-btn" title="Delete">✕</button>
+              </td>
+            </tr>
+        
+          @if (itemList.length === 0) {
+            <tr class="empty-row">
+              <td colspan="7" class="empty-message">No items found. Add a new item to get started.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

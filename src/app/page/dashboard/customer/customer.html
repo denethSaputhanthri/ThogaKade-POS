@@ -1,27 +1,140 @@
-<div class="container">
-    <h2>Customer Management</h2>
+<div class="customer-wrapper">
+  <!-- Header -->
+  <div class="header-section">
+    <div class="header-content">
+      <h2 class="page-title">Customer Management</h2>
+      <p class="page-subtitle">Add and manage your customers</p>
+    </div>
+  </div>
 
+  <!-- Add Customer Form -->
+  <div class="form-section">
     <div class="form-card">
-        <input type="text" id="name" placeholder="Customer Name">
-        <input type="email" id="email" placeholder="Email">
-        <input type="text" id="phone" placeholder="Phone">
-        <input type="text" id="address" placeholder="Address">
-        <button onclick="addCustomer()">Add Customer</button>
-    </div>
+      <h3 class="form-card-title">Add New Customer</h3>
+      
+      <!-- Form Sections -->
+      <div class="form-layout">
+        <!-- Personal Information -->
+        <div class="form-block">
+          <h4 class="block-title">Personal Information</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Mr/Ms/Dr" class="form-input"[(ngModel)]="customerObj.title">
+            </div>
+            <div class="form-group">
+              <label for="name">Full Name </label>
+              <input type="text"[(ngModel)]="customerObj.name" id="name" placeholder="Enter customer name" class="form-input" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id">Customer ID</label>
+              <input type="text"[(ngModel)]="customerObj.id" id="id" placeholder="Auto-generated" class="form-input" >
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date"[(ngModel)]="customerObj.dobValue" id="dob" class="form-input">
+            </div>
+          </div>
+        </div>
 
-    <div class="table-card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="customerTable">
-            </tbody>
-        </table>
+        <!-- Contact Information -->
+        <div class="form-block">
+          <h4 class="block-title">Contact Information</h4>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="address">Address </label>
+              <input type="text" [(ngModel)]="customerObj.address" id="address" placeholder="Street address" class="form-input" required>
+            </div>
+          </div>
+          
+          <div class="form-row three-col">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text"[(ngModel)]="customerObj.city" id="city" placeholder="City" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="Province">Province</label>
+              <input type="text"[(ngModel)]="customerObj.province" id="Province" placeholder="Province" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="PostalCode">Postal Code</label>
+              <input type="text" [(ngModel)]="customerObj.postalCode" id="PostalCode" placeholder="Postal Code" class="form-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Information -->
+        <div class="form-block">
+          <h4 class="block-title">Professional Information</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="text" [(ngModel)]="customerObj.salary" id="salary" placeholder="0.00" class="form-input">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="reset" class="btn btn-primary">Clear</button>
+        <button type="button" class="btn btn-primary" (click)="addCustomer()">
+        Add Customer</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Customer Table -->
+  <div class="table-section">
+    <div class="table-card">
+      <div class="table-header">
+        <h3 class="table-title">Customer List</h3>
+        <div class="table-info">Total: {{ customerList.length }}</div>
+      </div>
+      
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Birth Date</th>
+              <th>Salary</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="customerTable">
+            @for (customer of customerList; track $index) {
+              <tr class="table-row">
+                <td class="cell-index">{{ $index + 1 }}</td>
+                <td>{{ customer.id }}</td>
+                <td class="cell-name">{{ customer.name }}</td>
+                <td>{{ customer.title }}</td>
+                <td>{{ customer.dobValue }}</td>
+                <td class="cell-salary">{{ customer.salary }}</td>
+                <td>{{ customer.address }}</td>
+                <td>{{ customer.city }}</td>
+                <td class="cell-actions">
+                  <button class="action-btn edit-btn" title="Edit">✎</button>
+                  <button class="action-btn delete-btn" title="Delete">✕</button>
+                </td>
+              </tr>
+            }
+            @if (customerList.length === 0) {
+              <tr class="empty-row">
+                <td colspan="8" class="empty-message">No customers found. Add a new customer to get started.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
