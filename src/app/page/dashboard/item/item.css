@@ -200,23 +200,28 @@
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  color: white;
+  color: var(--text-primary);
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
   background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  border-color: var(--border-light);
 }
 
 .btn-secondary {
   background: var(--bg-panel-light);
   color: var(--text-primary);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
   background: var(--bg-hover);
   border-color: var(--border-light);
 }
