@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { OrderModel } from '../../../../model/type';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order',
@@ -26,6 +27,19 @@ export class Order implements OnInit{
   
   ngOnInit(): void {
    this.getAll();
+  }
+
+  deleteOrder(orderId:any ){
+    console.log(orderId);
+    
+    this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
+      
+       Swal.fire("Item is deleted.!");
+
+      this.getAll();
+    })
+
+
   }
 
   addOrder(){
