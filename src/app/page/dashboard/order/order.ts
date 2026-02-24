@@ -30,25 +30,15 @@ export class Order implements OnInit{
   }
 
   deleteOrder(orderId:any ){
-    console.log(orderId);
-    
     this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
-      
-       Swal.fire("Item is deleted.!");
-
+      Swal.fire("Item is deleted.!");
       this.getAll();
     })
-
-
   }
 
   addOrder(){
     this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
-    ((data)=>{
-      console.log(this.orderObj);
-    
-      
-    });
+    ((data)=>{});
     this.getAll()
   }
 
@@ -57,7 +47,6 @@ export class Order implements OnInit{
       this.orderList=data;
       this.crd.detectChanges();
     });
-    console.log(this.orderList);
   }
 
 }
