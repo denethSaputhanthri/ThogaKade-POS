@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ItemModel } from '../../../../model/type';
 import { NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-item',
@@ -29,6 +30,14 @@ export class Item implements OnInit{
 
   ngOnInit(): void {
     this.getAll();
+  }
+
+  deleteItem(id:any){
+    this.http.delete(`http://localhost:8080/item/delete/${id}`).subscribe(response=>{
+      Swal.fire("Item is deleted.!");
+    
+      this.getAll();
+    });
   }
 
   addItem(){
