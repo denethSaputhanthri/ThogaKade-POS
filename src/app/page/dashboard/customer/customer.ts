@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CustomerModel } from '../../../../model/type';
 import { HttpClient } from '@angular/common/http';
 import { NgForOf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,10 +29,11 @@ export class Customer implements OnInit {
   constructor(
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getAll();
   }
+  
 
   addCustomer() {
     console.log(this.customerObj);
@@ -56,4 +57,5 @@ export class Customer implements OnInit {
       this.cdr.detectChanges();
     });
   }
+
 }

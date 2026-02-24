@@ -67,6 +67,7 @@
         </div>
 
         <!-- Professional Information -->
+         
         <div class="form-block">
           <h4 class="block-title">Professional Information</h4>
           <div class="form-row">
@@ -111,9 +112,8 @@
             </tr>
           </thead>
           <tbody id="customerTable">
-            @for (customer of customerList; track $index) {
-              <tr class="table-row">
-                <td class="cell-index">{{ $index + 1 }}</td>
+              <tr class="table-row" *ngFor="let customer of customerList index as i">
+                <td class="cell-index">{{i + 1 }}</td>
                 <td>{{ customer.id }}</td>
                 <td class="cell-name">{{ customer.name }}</td>
                 <td>{{ customer.title }}</td>
@@ -126,7 +126,7 @@
                   <button class="action-btn delete-btn" title="Delete">✕</button>
                 </td>
               </tr>
-            }
+           
             @if (customerList.length === 0) {
               <tr class="empty-row">
                 <td colspan="8" class="empty-message">No customers found. Add a new customer to get started.</td>
