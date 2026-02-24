@@ -1,13 +1,13 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CustomerModel } from '../../../../model/type';
 import { HttpClient } from '@angular/common/http';
-import { NgForOf } from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import { CommonModule, NgForOf, NgIf } from '@angular/common';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer',
-  imports: [NgForOf, FormsModule],
+  imports: [NgForOf, NgIf,FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })
@@ -34,7 +34,6 @@ export class Customer implements OnInit {
     this.getAll();
   }
   
-
   addCustomer() {
     console.log(this.customerObj);
     this.http.post(`http://localhost:8080/customer/add`, this.customerObj).subscribe((data) => {
@@ -48,6 +47,15 @@ export class Customer implements OnInit {
       }
       this.getAll();
     });
+  }
+
+  deleteCustomer(id:any){
+    this.http.delete(`http://localhost:8080/customer/delete/${id}`).subscribe(response=>{
+      Swal.fire("User is deleted.!");
+
+      this.getAll();
+    });
+    
   }
 
   getAll() {

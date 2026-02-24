@@ -123,7 +123,7 @@
                 <td>{{ customer.city }}</td>
                 <td class="cell-actions">
                   <button class="action-btn edit-btn" title="Edit">✎</button>
-                  <button class="action-btn delete-btn" title="Delete">✕</button>
+                  <button class="action-btn delete-btn" (click)="deleteCustomer(customer.id)" title="Delete">✕</button>
                 </td>
               </tr>
            
