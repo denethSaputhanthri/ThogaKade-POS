@@ -38,8 +38,10 @@ export class Order implements OnInit{
 
   addOrder(){
     this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
-    ((data)=>{});
-    this.getAll()
+    ((data)=>{
+
+      this.getAll()
+    });
   }
 
   getAll(){
