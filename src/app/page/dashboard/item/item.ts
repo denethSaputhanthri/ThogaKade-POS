@@ -15,6 +15,8 @@ export class Item implements OnInit{
 
   itemList:Array<ItemModel>=[];
 
+  isEditMode:boolean = false;
+
   itemObj: ItemModel= {
     id: '',
     description: '',
@@ -34,20 +36,27 @@ export class Item implements OnInit{
 
   deleteItem(id:any){
     this.http.delete(`http://localhost:8080/item/delete/${id}`).subscribe(response=>{
-      Swal.fire("Item is deleted.!");
-    
+      Swal.fire("Item is deleted.!");    
       this.getAll();
     });
   }
 
-  addItem(){
-    console.log(this.itemObj);
-  
+  addOrEditItem(){ 
+    if (this.isEditMode) {
+      this.http.put(`http://localhost:8080/item/update`,this.itemObj).subscribe((data)=>{
+        if (data=== true){
+          Swal.fire("Item is Updated.!");
+        }
+        this.getAll()
+      });
+      return;
+    }
+
     this.http.post(`http://localhost:8080/item/add`, this.itemObj ).
     subscribe((data)=>{
       console.log(data);
       if(data=== true){
-
+        Swal.fire("Item is Added.!");
       }
       this.getAll()
     });
@@ -59,5 +68,31 @@ export class Item implements OnInit{
       console.log(data);
       this.crd.detectChanges();
     })
+  }
+
+  editItem(item: ItemModel){
+    this.isEditMode = true;
+    this.itemObj = item;
+    
+    window.scrollTo({
+      top: 130,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  clear(){
+    this.itemObj ={
+      id: '',
+      description: '',
+      packSize: '',
+      unitPrice: 0.0,
+      qty: 0.0,
+    }
+  }
+
+  cancel(){
+    this.isEditMode = false;
+    this.clear();
   }
 }
