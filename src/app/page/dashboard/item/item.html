@@ -53,10 +53,10 @@
       <!-- Form Actions -->
       <div class="form-actions">
         @if (isEditMode) {
-          <button type="button" class="btn btn-secondary" (click)="cancel()" >Clear</button>
+          <button type="button" class="btn btn-secondary" (click)="cancel()" >Cancel</button>
         }
         <button type="button" class="btn btn-secondary" (click)="clear()" >Clear</button>
-        <button type="button" class="btn btn-primary" (click)="addItem()" >{{isEditMode ? 'Update Item' : 'Add Item'}}</button>
+        <button type="button" class="btn btn-primary" (click)="addOrEditItem()" >{{isEditMode ? 'Update Item' : 'Add Item'}}</button>
       </div>
     </div>
   </div>

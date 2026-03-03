@@ -36,20 +36,27 @@ export class Item implements OnInit{
 
   deleteItem(id:any){
     this.http.delete(`http://localhost:8080/item/delete/${id}`).subscribe(response=>{
-      Swal.fire("Item is deleted.!");
-    
+      Swal.fire("Item is deleted.!");    
       this.getAll();
     });
   }
 
-  addItem(){
-    console.log(this.itemObj);
-  
+  addOrEditItem(){ 
+    if (this.isEditMode) {
+      this.http.put(`http://localhost:8080/item/update`,this.itemObj).subscribe((data)=>{
+        if (data=== true){
+          Swal.fire("Item is Updated.!");
+        }
+        this.getAll()
+      });
+      return;
+    }
+
     this.http.post(`http://localhost:8080/item/add`, this.itemObj ).
     subscribe((data)=>{
       console.log(data);
       if(data=== true){
-
+        Swal.fire("Item is Added.!");
       }
       this.getAll()
     });
