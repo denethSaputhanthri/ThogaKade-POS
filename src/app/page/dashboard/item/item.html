@@ -4,7 +4,7 @@
     <div class="form-header">
       <div class="form-card-title">
         <div class="title-bar"></div>
-        <h2>Item Management</h2>
+        <h2>{{isEditMode ? 'Update Item Details ' :'Item Management'}}</h2>
       </div>
       <p class="form-subtitle">Add and manage your inventory items</p>
     </div>
@@ -13,6 +13,7 @@
     <div class="form-layout">
       <!-- Basic Information Section -->
       <div class="form-block">
+        
         <h3 class="block-title">Basic Information</h3>
         <div class="form-section-group">
           <div class="form-row two-col">
@@ -51,8 +52,11 @@
 
       <!-- Form Actions -->
       <div class="form-actions">
+        @if (isEditMode) {
+          <button type="button" class="btn btn-secondary" (click)="cancel()" >Clear</button>
+        }
         <button type="button" class="btn btn-secondary" (click)="clear()" >Clear</button>
-        <button type="button" class="btn btn-primary" (click)="addItem()" >Add Item</button>
+        <button type="button" class="btn btn-primary" (click)="addItem()" >{{isEditMode ? 'Update Item' : 'Add Item'}}</button>
       </div>
     </div>
   </div>

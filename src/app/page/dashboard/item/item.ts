@@ -83,4 +83,9 @@ export class Item implements OnInit{
       qty: 0.0,
     }
   }
+
+  cancel(){
+    this.isEditMode = false;
+    this.clear();
+  }
 }
