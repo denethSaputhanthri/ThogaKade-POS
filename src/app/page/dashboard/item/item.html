@@ -87,7 +87,7 @@
               <td class="cell-price">${{ item.unitPrice }}</td>
               <td class="cell-qty">{{ item.qty }}</td>
               <td class="cell-actions">
-                <button class="action-btn edit-btn" title="Edit">✎</button>
+                <button class="action-btn edit-btn" (click)="editItem(item)" title="Edit">✎</button>
                 <button class="action-btn delete-btn" (click)="deleteItem(item.id)" title="Delete">✕</button>
               </td>
             </tr>

@@ -60,4 +60,8 @@ export class Item implements OnInit{
       this.crd.detectChanges();
     })
   }
+
+  editItem(item: ItemModel){
+    
+  }
 }
