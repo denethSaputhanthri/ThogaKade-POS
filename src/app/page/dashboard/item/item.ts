@@ -73,4 +73,14 @@ export class Item implements OnInit{
       behavior: 'smooth',
     });
   }
+
+  clear(){
+    this.itemObj ={
+      id: '',
+      description: '',
+      packSize: '',
+      unitPrice: 0.0,
+      qty: 0.0,
+    }
+  }
 }
