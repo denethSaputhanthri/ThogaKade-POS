@@ -15,6 +15,8 @@ export class Item implements OnInit{
 
   itemList:Array<ItemModel>=[];
 
+  isEditMode:boolean = false;
+
   itemObj: ItemModel= {
     id: '',
     description: '',
@@ -62,6 +64,13 @@ export class Item implements OnInit{
   }
 
   editItem(item: ItemModel){
+    this.isEditMode = true;
+    this.itemObj = item;
     
+    window.scrollTo({
+      top: 130,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 }
