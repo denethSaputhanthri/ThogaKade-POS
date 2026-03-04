@@ -31,19 +31,20 @@ export class Order implements OnInit{
    this.getAll();
   }
 
+  
+  addOrder(){
+    this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
+    ((data)=>{
+      
+      this.getAll()
+    });
+  }
+  
   deleteOrder(orderId:string){
     this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
       Swal.fire("Item  is deleted.!");
       this.getAll();
     })
-  }
-
-  addOrder(){
-    this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
-    ((data)=>{
-
-      this.getAll()
-    });
   }
 
   getAll(){
@@ -63,8 +64,15 @@ export class Order implements OnInit{
       behavior: 'smooth',
     });
   }
+  cancel(){
+    this.isEditMode = false;
+    this.clear();
+  }
 
   clear(){
+    if (this.isEditMode) {
+      this.cancel();
+    }
     this.orderObj={
        id: '',
        orderDate: new Date(),

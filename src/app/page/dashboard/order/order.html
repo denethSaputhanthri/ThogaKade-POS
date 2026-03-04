@@ -35,8 +35,11 @@
 
       <!-- Form Actions -->
       <div class="form-actions">
+        @if (isEditMode) {
+          <button type="button" class="btn btn-secondary"(click)="cancel()">Cancel</button>
+        }
         <button type="button" class="btn btn-secondary"(click)="clear()">Clear</button>
-        <button type="button" class="btn btn-primary" (click)="addOrder()">Create Order</button>
+        <button type="button" class="btn btn-primary" (click)="addOrder()">{{isEditMode ? 'Update Order' : 'Add Order'}} </button>
       </div>
     </div>
   </div>
