@@ -31,6 +31,24 @@ export class Order implements OnInit{
    this.getAll();
   }
 
+  addOrEditOrder(){
+    this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
+    ((data)=>{
+      if (data === true) {
+        Swal.fire("Item  is Added.!")
+      }
+      this.getAll()
+    });
+
+    if (this.isEditMode) {
+      this.http.put(`http://localhost:8080/order/update`,this.orderObj).subscribe((data)=>{
+        if (data=== true) {
+          Swal.fire("Item  is update.!")
+        }
+      });
+    }
+
+  }
   
   addOrder(){
     this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
