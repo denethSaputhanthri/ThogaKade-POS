@@ -33,7 +33,7 @@ export class Order implements OnInit{
 
   deleteOrder(orderId:string){
     this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
-      Swal.fire("Item is deleted.!");
+      Swal.fire("Item  is deleted.!");
       this.getAll();
     })
   }
@@ -56,7 +56,19 @@ export class Order implements OnInit{
   edit(order : OrderModel){
     this.isEditMode = true;
     this.orderObj = order;
-    
+
+      window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 
+  clear(){
+    this.orderObj={
+       id: '',
+       orderDate: new Date(),
+       customerId: ''
+    }
+  }
 }
