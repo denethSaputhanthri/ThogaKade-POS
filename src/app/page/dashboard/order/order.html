@@ -71,7 +71,7 @@
                 <span class="status-badge">Pending</span>
               </td>
               <td class="cell-actions">
-                <button class="action-btn edit-btn" title="Edit">✎</button>
+                <button class="action-btn edit-btn" (click)="edit(order)"title="Edit">✎</button>
                 <button class="action-btn delete-btn" (click)="deleteOrder(order.id)" title="Delete">✕</button>
               </td>
             </tr>

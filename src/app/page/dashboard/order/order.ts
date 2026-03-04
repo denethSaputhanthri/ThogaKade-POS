@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 export class Order implements OnInit{
   orderList: Array<OrderModel>=[];
 
+  isEditMode:Boolean = false;
+
   orderObj: OrderModel={
     id: '',
     orderDate: new Date(),
@@ -29,7 +31,7 @@ export class Order implements OnInit{
    this.getAll();
   }
 
-  deleteOrder(orderId:any ){
+  deleteOrder(orderId:string){
     this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
       Swal.fire("Item is deleted.!");
       this.getAll();
@@ -49,6 +51,12 @@ export class Order implements OnInit{
       this.orderList=data;
       this.crd.detectChanges();
     });
+  }
+
+  edit(order : OrderModel){
+    this.isEditMode = true;
+    this.orderObj = order;
+    
   }
 
 }
