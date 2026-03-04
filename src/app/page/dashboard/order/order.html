@@ -35,8 +35,11 @@
 
       <!-- Form Actions -->
       <div class="form-actions">
-        <button type="button" class="btn btn-secondary">Clear</button>
-        <button type="button" class="btn btn-primary" (click)="addOrder()">Create Order</button>
+        @if (isEditMode) {
+          <button type="button" class="btn btn-secondary"(click)="cancel()">Cancel</button>
+        }
+        <button type="button" class="btn btn-secondary"(click)="clear()">Clear</button>
+        <button type="button" class="btn btn-primary" (click)="addOrEditOrder()">{{isEditMode ? 'Update Order' : 'Add Order'}} </button>
       </div>
     </div>
   </div>
@@ -50,7 +53,7 @@
     
     <div class="table-container">
       <table class="data-table">
-        <thead>
+      <thead>
           <tr>
             <th>#</th>
             <th>Order ID</th>
@@ -71,7 +74,7 @@
                 <span class="status-badge">Pending</span>
               </td>
               <td class="cell-actions">
-                <button class="action-btn edit-btn" title="Edit">✎</button>
+                <button class="action-btn edit-btn" (click)="edit(order)"title="Edit">✎</button>
                 <button class="action-btn delete-btn" (click)="deleteOrder(order.id)" title="Delete">✕</button>
               </td>
             </tr>

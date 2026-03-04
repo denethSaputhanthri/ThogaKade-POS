@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 export class Order implements OnInit{
   orderList: Array<OrderModel>=[];
 
+  isEditMode:Boolean = false;
+
   orderObj: OrderModel={
     id: '',
     orderDate: new Date(),
@@ -29,19 +31,38 @@ export class Order implements OnInit{
    this.getAll();
   }
 
-  deleteOrder(orderId:any ){
-    this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
-      Swal.fire("Item is deleted.!");
-      this.getAll();
-    })
-  }
+  addOrEditOrder(){
+    this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
+    ((data)=>{
+      if (data === true) {
+        Swal.fire("Item  is Added.!")
+      }
+      this.getAll()
+    });
 
+    if (this.isEditMode) {
+      this.http.put(`http://localhost:8080/order/update`,this.orderObj).subscribe((data)=>{
+        if (data=== true) {
+          Swal.fire("Item  is update.!")
+        }
+      });
+    }
+
+  }
+  
   addOrder(){
     this.http.post(`http://localhost:8080/order/add`,this.orderObj).subscribe
     ((data)=>{
-
+      
       this.getAll()
     });
+  }
+  
+  deleteOrder(orderId:string){
+    this.http.delete(`http://localhost:8080/order/delete/${orderId}`).subscribe(response=>{
+      Swal.fire("Item  is deleted.!");
+      this.getAll();
+    })
   }
 
   getAll(){
@@ -51,4 +72,29 @@ export class Order implements OnInit{
     });
   }
 
+  edit(order : OrderModel){
+    this.isEditMode = true;
+    this.orderObj = order;
+
+      window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+  cancel(){
+    this.isEditMode = false;
+    this.clear();
+  }
+
+  clear(){
+    if (this.isEditMode) {
+      this.cancel();
+    }
+    this.orderObj={
+       id: '',
+       orderDate: new Date(),
+       customerId: ''
+    }
+  }
 }
